@@ -1,16 +1,37 @@
-<h1>Hello World!</h1>
+{{ 's-banner.css' | asset_url | stylesheet_tag }}
+<section class="s-banner">
+  <a href="{{ section.settings.collection_url }}">
+    <figure>
+      <img
+        src="{{ section.settings.d_image | image_url}}"
+        width="auto"
+        height="auto"
+      >
+    </figure>
+  </a>
+  {% for product in collections.all.products %}
+    {% if product.tags contains 'Skirt' %}
+      <p>{{ product.title }}</p>
+    {% endif %}
+  {% endfor %}
+</section>
 
 {% schema %}
 {
   "name": "banner",
   "settings": [
     {
-      "id": "d-image",
+      "id": "collection_url",
+      "label": "Collection URL",
+      "type": "url"
+    },
+    {
+      "id": "d_image",
       "label": "Desktop Image",
       "type": "image_picker"
     },
     {
-      "id": "m-image",
+      "id": "m_image",
       "label": "Mobile Image",
       "type": "image_picker"
     }

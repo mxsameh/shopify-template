@@ -11,37 +11,217 @@
   "page": [],
   "product": [
     {
-      "key": "binding_mount",
-      "namespace": "test_data",
-      "name": "Snowboard binding mount",
-      "description": "The type of binding mount used on the snowboard",
+      "key": "points",
+      "namespace": "custom",
+      "name": "points",
+      "description": "Points customer will get when he purchases the product.",
+      "type": {
+        "name": "number_integer",
+        "category": "NUMBER"
+      }
+    },
+    {
+      "key": "shipping",
+      "namespace": "custom",
+      "name": "Shipping",
+      "description": "7 days",
       "type": {
         "name": "single_line_text_field",
         "category": "TEXT"
       }
     },
     {
-      "key": "snowboard_length",
-      "namespace": "test_data",
-      "name": "Snowboard length",
-      "description": "The length of the snowboard",
+      "key": "color-pattern",
+      "namespace": "shopify",
+      "name": "Color",
+      "description": "Defines the primary color or pattern, such as blue or striped",
       "type": {
-        "name": "dimension",
-        "category": "MEASUREMENT"
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
       }
-    }
-  ],
-  "variant": [],
-  "shop": [
+    },
     {
-      "key": "alpine_sports",
-      "namespace": "test_data",
-      "name": "Alpine sport types",
-      "description": "The set of alpine sports that this sport shop specializes in",
+      "key": "size",
+      "namespace": "shopify",
+      "name": "Size",
+      "description": "Used to specify the size of a product, such as 0-3 months or Extra large (XL)",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "skirt-dress-length-type",
+      "namespace": "shopify",
+      "name": "Skirt/Dress length type",
+      "description": "Defines the length of skirts or dresses, such as mini or maxi",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "target-gender",
+      "namespace": "shopify",
+      "name": "Target gender",
+      "description": "Identifies the intended gender for a product, such as female, male or unisex",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "occasion",
+      "namespace": "shopify",
+      "name": "Occasion",
+      "description": "Specifies the suitable event or setting for a product, e.g. casual, formal",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "size_fit",
+      "namespace": "custom",
+      "name": "Size & Fit",
+      "description": "",
+      "type": {
+        "name": "multi_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "fabric",
+      "namespace": "shopify",
+      "name": "Fabric",
+      "description": "Identifies the type of fabric used in a product, for example, cotton or denim",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "fit",
+      "namespace": "shopify",
+      "name": "Fit",
+      "description": "Describes the fit of a garment, typically pant shape; e.g. skinny leg, wide",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "age-group",
+      "namespace": "shopify",
+      "name": "Age group",
+      "description": "Defines the target age range for a product, such as adults or kids",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "waist-rise",
+      "namespace": "shopify",
+      "name": "Waist rise",
+      "description": "Indicates where on the waist a garment sits, like low, medium or high",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "pants-length-type",
+      "namespace": "shopify",
+      "name": "Pants length type",
+      "description": "Used to defines the length of pants, such as cropped or long",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "queries",
+      "namespace": "shopify--discovery--product_search_boost",
+      "name": "Search product boosts",
+      "description": "List of search queries for which a product gets higher rank in search results",
       "type": {
         "name": "list.single_line_text_field",
         "category": "TEXT"
       }
+    },
+    {
+      "key": "related_products",
+      "namespace": "shopify--discovery--product_recommendation",
+      "name": "Related products",
+      "description": "List of related products",
+      "type": {
+        "name": "list.product_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "related_products_display",
+      "namespace": "shopify--discovery--product_recommendation",
+      "name": "Related products settings",
+      "description": "Determines how related products are displayed along with algorithmic product recommendations",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "complementary_products",
+      "namespace": "shopify--discovery--product_recommendation",
+      "name": "Complementary products",
+      "description": "List of complementary products",
+      "type": {
+        "name": "list.product_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "season",
+      "namespace": "shopify",
+      "name": "Season",
+      "description": "Indicates the season the product is best suited for, such as summer or fall",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "sleeve-length-type",
+      "namespace": "shopify",
+      "name": "Sleeve length type",
+      "description": "Specifies the style of sleeves on clothing items, such as short or sleeveless",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "neckline",
+      "namespace": "shopify",
+      "name": "Neckline",
+      "description": "Used to describe the neck shape of a garment, such as V-neck or boat",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
     }
-  ]
+  ],
+  "variant": [
+    {
+      "key": "color_code",
+      "namespace": "custom",
+      "name": "color code",
+      "description": "Variant color hexadecimal code ex: \"#000000\"",
+      "type": {
+        "name": "color",
+        "category": "COLOR"
+      }
+    }
+  ],
+  "shop": []
 }

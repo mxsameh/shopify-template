@@ -1,8 +1,9 @@
 <html>
-    <head>
-        {{ content_for_header }}
-    </head>
-<body>
-        {{ content_for_layout }}
-</body>
+  <head>
+    {{ content_for_header }}
+    {{ 'reset.css' | asset_url | stylesheet_tag }}
+  </head>
+  <body>
+    {{ content_for_layout }}
+  </body>
 </html>

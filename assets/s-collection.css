@@ -1,0 +1,64 @@
+.collection_sort_{
+    padding: 0 20px;
+}
+.collection_sort{
+    margin-left: auto;
+    display: block;
+    cursor: pointer;
+}
+.collection_info {
+  padding: 20px;
+  max-width: clamp(0px, 100%, 800px);
+}
+
+.collection_info h2 {
+  font-size: 18px;
+  font-weight: 500;
+  color: #212121;
+}
+
+.collection_info p {
+  font-size: 14px;
+  color: #333;
+  &:first-of-type {
+    margin-top: 20px;
+  }
+}
+
+.collection_products{
+    margin-top: 40px;
+    padding-inline: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 40px 20px;
+}
+.cp_{
+}
+.cp figure{
+    aspect-ratio: 4/5;
+}
+.cp_info{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 12px;
+}
+.cp_info h3{
+    font-size: 14px;
+    color: #333;
+}
+.cp_info p{
+    font-size: 12px;
+}
+.collection_nav{
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    color: #666;
+}
+.collection_nav .current{
+    color: black;
+}
+
+

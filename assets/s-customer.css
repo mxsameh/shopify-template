@@ -1,0 +1,56 @@
+.p {
+  padding-top: 40px;
+  padding-inline: 24px;
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+}
+.m {
+  width: clamp(0px, 100%, 800px);
+}
+.m h1 {
+  font-size: 18px;
+  font-weight: 500;
+}
+.m p {
+  font-size: 14px;
+  margin-top: 16px;
+}
+.as {
+  flex-shrink: 0;
+}
+.customer-nav {
+  width: 100%;
+}
+.customer-nav ul {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-end;
+}
+.customer-nav li {
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  padding-bottom: 2px;
+  border-bottom: 1px solid transparent;
+}
+
+.customer-nav li.active {
+    border-color: black;
+}
+.customer-nav .logout  {
+  color: #fff;
+  width: 100%;
+  background: black;
+  margin-top: 24px;
+  border-radius: 50px;
+  text-align: center;
+  padding-bottom: 0;
+  border: none;
+}
+.customer-nav .logout a{
+    display: block;
+    width: 100%;
+    padding: 10px;
+}

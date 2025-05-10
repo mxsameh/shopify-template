@@ -1,0 +1,181 @@
+.address {
+  margin-top: 40px;
+}
+.address_d {
+  padding: 24px;
+  background-color: #ededed;
+  border-radius: 16px;
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas:
+    "country country"
+    "city zip"
+    "address1 address1"
+    "address2 address2"
+    "phone phone";
+  @media (width > 860px) {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas:
+      "name name name"
+      "country city zip"
+      "address1 address1 address1"
+      "address2 address2 address2"
+      "phone phone phone";
+  }
+}
+.address h3 {
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: #333;
+}
+.address p {
+  margin-top: 4px;
+  padding-bottom: 5px;
+  font-size: 14px;
+  color: black;
+}
+.address_name {
+  grid-area: name;
+}
+.address_country {
+  grid-area: country;
+}
+.address_city {
+  grid-area: city;
+}
+.address_zip {
+  grid-area: zip;
+}
+.address_add1 {
+  grid-area: address1;
+}
+.address_add2 {
+  grid-area: address2;
+}
+.address_phone {
+  grid-area: phone;
+}
+
+.address button {
+  width: 100%;
+  height: 40px;
+  margin-top: 24px;
+  padding: 8px 16px;
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 50px;
+  background-color: black;
+  color: white;
+}
+.address button a {
+  display: block;
+}
+
+.edit_ctas {
+  display: flex;
+  gap: 24px;
+}
+.edit_ctas button {
+  height: 40px;
+  margin-top: 24px;
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 50px;
+  background-color: black;
+  color: white;
+}
+.edit_ctas button:first-of-type {
+  width: 65%;
+}
+.edit_ctas button:last-of-type {
+  width: 35%;
+  background-color: transparent;
+  color: black;
+  border: 1px solid black;
+}
+
+.form fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form fieldset input,
+.form fieldset select {
+  order: 2;
+}
+
+.popup_ {
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(5px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+}
+.popup {
+  width: 100%;
+  max-width: 700px;
+  background-color: white;
+  padding: 20px;
+}
+.popup_h {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.popup_h svg {
+  width: 16px;
+}
+.popup h2 {
+  font-size: 16px;
+}
+.form {
+  margin-top: 32px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.form input {
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 14px;
+  color: #333;
+  background-color: #f0f0f0;
+  border-radius: 50px;
+}
+.form select {
+  padding: 12px 16px;
+  font-size: 14px;
+  color: #333;
+  background-color: #f0f0f0;
+  border-radius: 50px;
+}
+.form label {
+  font-size: 14px;
+}
+.form .address1,
+.form .address2 {
+  grid-column: span 2;
+}
+.form button {
+  width: 100%;
+  height: 40px;
+  margin-top: 24px;
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 50px;
+  background-color: black;
+  color: white;
+  text-align: center;
+  grid-column: span 2;
+}

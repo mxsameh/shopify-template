@@ -1,0 +1,9 @@
+{
+    "sections":{
+        "register":{
+            "type":"p-register",
+            "settings":{}
+        }
+    },
+    "order":["register"]
+}

@@ -1,0 +1,64 @@
+{{ 's-header.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'j-header.js' | asset_url }}" defer="defer"></script>
+
+<div class="h_">
+  <div class="h-ph"></div>
+  <header id="h" class="h">
+    <div class="h_l">
+      {% render 'menu-icon' %}
+      <nav class="h_n">
+        {% for link in linklists['main-menu'].links -%}
+          {% liquid
+            assign has_links = false
+            if link.links.size > 0
+              assign has_links = true
+            endif
+          %}
+          <div class="h_n-item {%if has_links %}has-dd{% endif %}">
+            {{ link.title | upcase | link_to: link.url }}
+            {% if has_links %}
+              <div class="h_dd">
+                <ul class="">
+                  {% for child_link in link.links %}
+                    <li class="menu-link">
+                      <a href="{{ child_link.url }}">{{ child_link.title }}</a>
+                    </li>
+                  {% endfor %}
+                </ul>
+                <button />
+              </div>
+            {% endif %}
+          </div>
+        {%- endfor %}
+      </nav>
+    </div>
+
+    <div class="h_m">
+      <a href="/">
+        {% if settings.logo %}
+          <figure>
+            {{ settings.logo | image_url: width: 120 | image_tag }}
+          </figure>
+        {% else %}
+          <span>
+            {{ shop.name }}
+          </span>
+        {% endif %}
+      </a>
+    </div>
+
+    <div class="h_r">
+      <button class="h_cb" type="button">
+        bag (<span id="cart-count" class="h_cb_count">{{- cart.item_count -}}</span>)
+      </button>
+    </div>
+  </header>
+  {% render 'menu-drawer' %}
+</div>
+
+{% schema %}
+{
+  "name": "header",
+  "settings": []
+}
+{% endschema %}

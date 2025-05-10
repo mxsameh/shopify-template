@@ -8,5 +8,18 @@
  * ------------------------------------------------------------
  */
 {
-  "current": {}
+  "current": {
+    "logo": "shopify://shop_images/emblem.svg",
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {}
+      },
+      "cart-drawer": {
+        "type": "cart-drawer",
+        "settings": {}
+      }
+    },
+    "content_for_index": []
+  }
 }

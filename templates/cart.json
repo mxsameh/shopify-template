@@ -1,0 +1,9 @@
+{
+    "sections":{
+        "cart":{
+            "type":"p-cart",
+            "settings":{}
+        }
+    },
+    "order":["cart"]
+}

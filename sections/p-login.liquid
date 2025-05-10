@@ -1,0 +1,71 @@
+{{ 's-p-login.css' | asset_url | stylesheet_tag }}
+
+<main class="m">
+  <div id="recover">
+    <h1>RESET PASSWORD</h1>
+    <p>We will send you an email to reset your password.</p>
+
+    {% form 'recover_customer_password' %}
+      {{ form.errors | default_errors }}
+
+      <fieldset class="email">
+        <label for="email">Email</label>
+        <input type="email" name="email">
+      </fieldset>
+
+      <button type="submit">RESET</button>
+    {% endform %}
+
+    <div class="ctas">
+      {{ 'Cancel' | link_to: '/account/login#' }}
+    </div>
+  </div>
+
+  <div id="login">
+    <h1>LOGIN</h1>
+
+    {% form 'customer_login' %}
+      <fieldset class="email">
+        <label for="email">Email</label>
+        <input type="email" name="customer[email]">
+      </fieldset>
+
+      <fieldset class="password">
+        <label for="password">Password</label>
+        <input type="password" name="customer[password]">
+      </fieldset>
+
+      <button type="submit">LOGIN</button>
+
+      {{ form.errors | default_errors }}
+    {% endform %}
+
+    <div class="ctas">
+      {{ 'Create Account' | link_to: routes.account_register_url }}
+      {{ 'Forgot password?' | link_to: '/account/login#recover' }}
+    </div>
+  </div>
+</main>
+
+{% comment %} <script>
+  const x = document.querySelector('#login form');
+  console.log('Form:', x);
+  x.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const email = x.querySelector('input[name="customer[email]"]').value;
+    const password = x.querySelector('input[name="customer[password]"]').value;
+    const res = await fetch('/account/login', {
+      method: 'POST',
+      body: new FormData(e.target),
+    });
+    const data = await res.json();
+    console.log('Response:', data);
+  });
+</script> {% endcomment %}
+
+{% schema %}
+{
+  "name": "login",
+  "settings": []
+}
+{% endschema %}

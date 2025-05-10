@@ -1,0 +1,9 @@
+{
+  "sections": {
+    "account": {
+      "type": "p-account",
+      "settings": {}
+    }
+  },
+  "order": ["account"]
+}

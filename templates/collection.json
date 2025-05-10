@@ -1,0 +1,11 @@
+{
+    "sections":{
+        "collection":{
+            "type":"p-collection",
+            "settings":{},
+        }
+
+    },
+    "order":["collection"]
+
+}

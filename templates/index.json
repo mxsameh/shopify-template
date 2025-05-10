@@ -11,10 +11,38 @@
   "sections": {
     "banner": {
       "type": "banner",
-      "settings": {}
+      "settings": {
+        "collection_url": "",
+        "d_image": "shopify://shop_images/he-d-h.webp"
+      }
+    },
+    "looping_header_U3eiC8": {
+      "type": "looping-header",
+      "name": "Looping Header",
+      "settings": {
+        "title": "new arrivals"
+      }
+    },
+    "collection_slider_XqHGLz": {
+      "type": "collection-slider",
+      "name": "Collection Slider",
+      "settings": {
+        "collection": "new-arrivals"
+      }
+    },
+    "banner_pdea3t": {
+      "type": "banner",
+      "name": "Banner",
+      "settings": {
+        "collection_url": "",
+        "d_image": "shopify://shop_images/l.png"
+      }
     }
   },
   "order": [
-    "banner"
+    "banner",
+    "looping_header_U3eiC8",
+    "collection_slider_XqHGLz",
+    "banner_pdea3t"
   ]
 }

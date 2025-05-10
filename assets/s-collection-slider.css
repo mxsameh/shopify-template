@@ -1,0 +1,28 @@
+.collection-slider_ {
+  padding-block: 20px;
+  margin-inline: 20px
+}
+.collection-slider {
+  display: flex;
+  gap: 20px;
+}
+.product {
+  flex-basis: calc((100% - 20px * 3) / 4);
+  flex-shrink: 0;
+  min-width: clamp(180px, calc(100% / 4.25), 100%);
+}
+.product a{
+  display: block;
+}
+.product figure {
+  overflow: hidden;
+  width: 100%;
+  aspect-ratio: 4/5;
+}
+.product-info{
+  margin-top: 16px;
+  text-align: center;
+}
+.product-info p{
+  margin-top: 8px;
+}

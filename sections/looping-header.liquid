@@ -1,0 +1,29 @@
+{{ 's-looping-header.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'j-looping-header.js' | asset_url }}" defer ></script>
+
+<div class="lh_">
+  <div class="lh">
+    <div class="lh_i">
+      <h2>{{ section.settings.title }}</h2>
+      <img
+        src="{{ 'i-kiss.svg' | asset_url }}"
+        width="auto"
+        height="auto"
+      >
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "looping-header",
+  "settings": [
+    {
+      "label": "Title",
+      "id": "title",
+      "type": "text"
+    }
+  ],
+  "presets": [{ "name": "Looping Header" }]
+}
+{% endschema %}

@@ -1,0 +1,13 @@
+{{ 's-accordion.css' | asset_url | stylesheet_tag }}
+
+<div class="accordion">
+  <div class="accordion_h">
+    <h2>{{- heading -}}</h2>
+    {{ 'i-plus.svg' | inline_asset_content }}
+  </div>
+  <div class="accordion_b_">
+    <div class="accordion_b">
+      {{- content | default: default  -}}
+    </div>
+  </div>
+</div>

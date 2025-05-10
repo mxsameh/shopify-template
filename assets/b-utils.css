@@ -1,0 +1,17 @@
+:root {
+  --h-h: 52px;
+  --md: 768px;
+}
+.h-s {
+  overflow: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.d-n {
+  display: none !important;
+}
+
+.s-s {
+  height: 100vh;
+  overflow: hidden;
+}

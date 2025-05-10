@@ -1,0 +1,45 @@
+{{ 's-customer.css' | asset_url | stylesheet_tag }}
+{{ 's-p-account.css' | asset_url | stylesheet_tag }}
+
+<div class="p">
+  <main class="m">
+    <h1>ACCOUNT</h1>
+    <p>Welcome {{ customer.first_name }}, Here we keep track of all your recent orders.</p>
+
+    {% if customer.orders_count > 0 %}
+      <div class="orders">
+        <div class="table_">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>order no.</th>
+                <th>date</th>
+                <th>payment</th>
+                <th>status</th>
+                <th>total</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for order in customer.orders %}
+                <tr>
+                  <td># {{ order.order_number }}</td>
+                  <td>{{ order.created_at | date: '%B %d, %Y' }}</td>
+                  <td>{{ order.financial_status }}</td>
+                  <td>{{ order.fulfillment_status }}</td>
+                  <td>{{ order.total_price | money_without_currency | remove: '.00' }} LE</td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    {% else %}
+      <div>
+        <h3 class="no-orders">You don't have any orders yet!</h3>
+      </div>
+    {% endif %}
+  </main>
+  <aside class="as">
+    {% render 'customer-nav', page: 'account' %}
+  </aside>
+</div>

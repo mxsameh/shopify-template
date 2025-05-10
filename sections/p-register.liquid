@@ -1,0 +1,38 @@
+{{ 's-p-register.css' | asset_url | stylesheet_tag }}
+
+<div class="p">
+  <h1>CREATE ACCOUNT</h1>
+
+  {% form 'create_customer', class: 'form' %}
+    {{ form.errors | default_errors }}
+
+    <fieldset class="first-name">
+      <label for="first-name">First name</label>
+      <input type="text" name="customer[first_name]">
+    </fieldset>
+
+    <fieldset class="last-name">
+      <label for="last-name">Last name</label>
+      <input type="text" name="customer[last_name]">
+    </fieldset>
+
+    <fieldset class="email">
+      <label for="email">Email</label>
+      <input type="email" name="customer[email]">
+    </fieldset>
+
+    <fieldset class="password">
+      <label for="password">Password</label>
+      <input type="password" name="customer[password]">
+    </fieldset>
+
+    <button type="submit">CREATE ACCOUNT</button>
+  {% endform %}
+</div>
+
+{% schema %}
+{
+  "name": "register",
+  "settings": []
+}
+{% endschema %}

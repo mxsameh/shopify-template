@@ -1,0 +1,38 @@
+{{ 's-collection-slider.css' | asset_url | stylesheet_tag }}
+{% assign collection = section.settings.collection %}
+
+<div class="collection-slider_ h-s">
+  <ul class="collection-slider">
+    {% for product in collection.products %}
+      <li class="product">
+        <a href="/products/{{ product.handle }}">
+          <figure>
+            <img
+              src="{{ product.featured_image | image_url }}"
+              width="auto"
+              height="auto"
+            >
+          </figure>
+          <div class="product-info">
+            <h4>{{ product.title }}</h4>
+            <p>{{ product.price | money_without_currency | remove: '.00' }} LE</p>
+          </div>
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
+
+{% schema %}
+{
+  "name": "collection-slider",
+  "settings": [
+    {
+      "label": "Collection",
+      "id": "collection",
+      "type": "collection"
+    }
+  ],
+  "presets": [{ "name": "Collection Slider" }]
+}
+{% endschema %}

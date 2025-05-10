@@ -1,0 +1,9 @@
+{
+  "sections": {
+    "orders": {
+      "type": "p-order",
+      "settings": {}
+    }
+  },
+  "order": ["orders"]
+}

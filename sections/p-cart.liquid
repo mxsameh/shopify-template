@@ -1,0 +1,34 @@
+<h1>Cart</h1>
+
+{% for item in cart.items %}
+  <div class="cart-item">
+    {{ item.image | image_url: width: 100| image_tag }}
+    <h2>{{ item.product.title }}</h2>
+    <p>Variant: {{ item.variant.title }}</p>
+    <p>Quantity: {{ item.quantity }}</p>
+    <p>Price: {{ item.price | money }}</p>
+    <a href="{{ item.url_to_remove }}">remove</a>
+  </div>
+{% endfor %}
+
+<script>
+  const cart = {{ cart | json }};
+
+  console.log('Cart: ', cart)
+
+  const x = fetch('/cart.js')
+    .then((response) => response.json())
+    .then((data) => {
+      console.log('Cart data: ', data);
+    })
+    .catch((error) => {
+      console.error('Error fetching cart data:', error);
+    });
+</script>
+
+{% schema %}
+{
+  "name": "cart",
+  "settings": [],
+}
+{% endschema %}

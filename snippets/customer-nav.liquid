@@ -1,0 +1,17 @@
+<nav class="customer-nav">
+  <ul>
+    <li
+      class="{% if page == 'account' %}active{% endif %}"
+    >
+      <a href="/account">ACCOUNT</a>
+    </li>
+    <li
+      class="{% if page == 'addresses' %}active{% endif %}"
+    >
+      <a href="/addresses">ADRESS BOOK</a>
+    </li>
+    <li class="logout">
+      <a href="{{ routes.account_logout_url }}">LOGOUT</a>
+    </li>
+  </ul>
+</nav>

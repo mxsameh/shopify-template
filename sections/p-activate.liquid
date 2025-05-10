@@ -1,0 +1,32 @@
+{{ 's-p-activate.css' | asset_url | stylesheet_tag }}
+
+<div class="p">
+  <h1>ACTIVATE ACCOUNT</h1>
+
+{% form 'activate_customer_password', class:'form' %}
+  {{ form.errors | default_errors }}
+
+  <fieldset class="password">
+    <label for="password">Password</label>
+    <input type="password" name="customer[password]">
+  </fieldset>
+
+  <fieldset class="password_confirm">
+    <label for="password_confirmation">Password Confirmation</label>
+    <input type="password" name="customer[password_confirmation]">
+  </fieldset>
+
+  <div class="ctas">
+    <button type="submit">ACTIVATE ACCOUNT</button>
+    <button type="submit" name="decline">DECLINE INVITATION</button>
+  </div>
+{% endform %}
+
+</div>
+
+{% schema %}
+{
+  "name": "activate",
+  "settings": []
+}
+{% endschema %}

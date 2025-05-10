@@ -1,0 +1,9 @@
+{
+    "sections":{
+        "activate":{
+            "type":"p-activate",
+            "settings":{}
+        }
+    },
+    "order":["activate"]
+}

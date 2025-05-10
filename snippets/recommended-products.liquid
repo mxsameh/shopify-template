@@ -1,0 +1,45 @@
+{{ 's-recommended-products.css' | asset_url | stylesheet_tag }}
+{% assign limit = 6 %}
+
+<div
+  class="recommendations"
+  data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit={{limit}}&intent=related"
+>
+  {%- if recommendations.performed? and recommendations.products_count > 0 -%}
+    <h2>RECOMMENDED PRODUCTS</h2>
+
+    <div class="products-slider_">
+      {% render 'products-slider', products: recommendations.products %}
+    </div>
+  {%- endif -%}
+</div>
+
+{% javascript %}
+  const handleIntersection = (entries, observer) => {
+    if (!entries[0].isIntersecting) return;
+
+    observer.unobserve(productRecommendationsSection);
+
+    const url = productRecommendationsSection.dataset.url;
+
+    fetch(url)
+      .then((response) => response.text())
+      .then((text) => {
+        const html = document.createElement('div');
+        html.innerHTML = text;
+        const recommendations = html.querySelector('.recommendations');
+
+        if (recommendations && recommendations.innerHTML.trim().length) {
+          productRecommendationsSection.innerHTML = recommendations.innerHTML;
+        }
+      })
+      .catch((e) => {
+        console.error(e);
+      });
+  };
+
+  const productRecommendationsSection = document.querySelector('.recommendations');
+  const observer = new IntersectionObserver(handleIntersection, { rootMargin: '0px 0px 200px 0px' });
+
+  observer.observe(productRecommendationsSection);
+{% endjavascript %}

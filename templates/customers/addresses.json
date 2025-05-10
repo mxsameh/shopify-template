@@ -1,0 +1,9 @@
+{
+  "sections": {
+    "addresses": {
+      "type": "p-addresses",
+      "settings": {}
+    }
+  },
+  "order": ["addresses"]
+}

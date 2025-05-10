@@ -1,0 +1,172 @@
+{{ 's-customer.css' | asset_url | stylesheet_tag }}
+{{ 's-p-addresses.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'j-addresses.js' | asset_url }}" defer></script>
+
+{% assign address = customer.default_address %}
+
+<div class="p">
+  <main class="m">
+    <h1>ADDRESS BOOK</h1>
+    <p>This address will be used as the default address for orders shipping.</p>
+
+    <div id="edit" class="popup_ d-n">
+      <div class="popup">
+        <div class="popup_h">
+          <h2>EDIT ADDRESS</h2>
+          <button class="close">
+            {{ 'i-close.svg' | inline_asset_content }}
+          </button>
+        </div>
+        {%- form 'customer_address', address, class: 'form' -%}
+          <fieldset class="first-name">
+            <input
+              type="text"
+              id="first_name"
+              name="address[first_name]"
+              value="{{ form.first_name }}"
+              autocomplete="given-name"
+            >
+            <label for="first_name">FIRST NAME</label>
+          </fieldset>
+          <fieldset class="last-name">
+            <input
+              type="text"
+              id="last_name"
+              name="address[last_name]"
+              value="{{ form.last_name }}"
+              autocomplete="family-name"
+            >
+            <label for="last_name">LAST NAME</label>
+          </fieldset>
+          <fieldset class="address1">
+            <input
+              type="text"
+              id="address1"
+              name="address[address1]"
+              value="{{ form.address1 }}"
+              autocomplete="address-line1"
+            >
+            <label for="address1">ADDRESS</label>
+          </fieldset>
+          <fieldset class="address2">
+            <input
+              type="text"
+              id="address2"
+              name="address[address2]"
+              value="{{ form.address2 }}"
+              autocomplete="address-line2"
+            >
+            <label for="address2">APARTMENT, SUITE, ETC.</label>
+          </fieldset>
+          <fieldset class="country">
+            <label for="country">COUNTRY</label>
+            <select
+              id="country"
+              name="address[country]"
+              data-address-country-select
+              data-default="{{ form.country }}"
+              data-form-id="{{ form.id }}"
+              autocomplete="country"
+            >
+              mosa
+              {{ all_country_option_tags }}
+            </select>
+          </fieldset>
+          <fieldset class="city">
+            <input
+              type="text"
+              id="city"
+              name="address[city]"
+              value="{{ form.city }}"
+              autocomplete="address-level2"
+            >
+            <label for="city">CITY</label>
+          </fieldset>
+          <fieldset class="zip">
+            <input
+              type="text"
+              id="zip"
+              name="address[zip]"
+              value="{{ form.zip }}"
+              autocapitalize="characters"
+              autocomplete="postal-code"
+            >
+            <label for="zip">ZIP CODE</label>
+          </fieldset>
+          <fieldset class="phone">
+            <input
+              type="tel"
+              id="phone"
+              name="address[phone]"
+              value="{{ form.phone }}"
+              autocomplete="tel"
+            >
+            <label for="phone">PHONE</label>
+          </fieldset>
+          <input type="text" id="default-add" name="address[default]" value="1" hidden>
+          <button type="submit">SAVE CHANGES</button>
+        {%- endform -%}
+      </div>
+    </div>
+
+    <div class="address">
+      <div class="address_d">
+        <div class="address_name">
+          <h3>Name</h3>
+          <p>
+            {{ address.first_name }}
+            {{ address.last_name }}
+          </p>
+        </div>
+        <div class="address_country">
+          <h3>Country</h3>
+          <p>{{ address.country }}</p>
+        </div>
+        <div class="address_city">
+          <h3>City</h3>
+          <p>{{ address.city }}</p>
+        </div>
+        <div class="address_zip">
+          <h3>Zip Code</h3>
+          <p>{{ address.zip | default: '--' }}</p>
+        </div>
+        <div class="address_add1">
+          <h3>Address</h3>
+          <p>{{ address.address1 }}</p>
+        </div>
+        <div class="address_add2">
+          <h3>Apartment, Suite, Etc.</h3>
+          <p>{{ address.address1 }}</p>
+        </div>
+        <div class="address_phone">
+          <h3>Phone</h3>
+          <p>{{ address.phone }}</p>
+        </div>
+      </div>
+
+      <button class="address_edit">EDIT</button>
+
+      {% comment %}
+        <div class="edit_ctas">
+            <button>SAVE</button>
+            <button>Cancel</button>
+        </div>
+      {% endcomment %}
+    </div>
+  </main>
+
+  <aside class="as">
+    {% render 'customer-nav', page: 'addresses' %}
+  </aside>
+</div>
+
+<script>
+  const x = {{ address | json }};
+</script>
+
+{% schema %}
+{
+  "name": "addresses",
+  "settings": []
+}
+{% endschema %}

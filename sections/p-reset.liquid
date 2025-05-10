@@ -1,0 +1,38 @@
+{{ 's-p-reset.css' | asset_url | stylesheet_tag }}
+
+<div class="p">
+  <h1>RESET PASSWORD</h1>
+
+  {%- form 'reset_customer_password', class: 'form' -%}
+    {{ form.errors | default_errors }}
+
+    <fieldset class="password">
+      <label for="password">Password</label>
+      <input
+        type="password"
+        name="customer[password]"
+        id="password"
+        required
+      >
+    </fieldset>
+
+    <fieldset class="password_confirm">
+      <label for="password_confirmation">Confirm password</label>
+      <input
+        type="password"
+        name="customer[password_confirmation]"
+        id="password_confirmation"
+        required
+      >
+    </fieldset>
+
+    <button type="submit">RESET PASSWORD</button>
+  {%- endform -%}
+</div>
+
+{% schema %}
+{
+  "name": "reset",
+  "settings": []
+}
+{% endschema %}

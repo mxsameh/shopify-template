@@ -1,0 +1,65 @@
+.orders {
+  margin-top: 40px;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 16px;
+}
+.table_ {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  font-size: 14px;
+  line-height: 20px;
+  border-radius: 8px;
+  background-color: #eee;
+  border-collapse: collapse;
+  overflow: hidden;
+}
+.table thead {
+  position: sticky;
+  top: 0;
+}
+.table th {
+  padding: 16px;
+  padding-top: 28px;
+  padding-left: 24px;
+  text-align: left;
+  font-weight: 500;
+  text-transform: uppercase;
+  &:last-of-type {
+    text-align: right;
+    padding-right: 24px;
+  }
+}
+
+.table tbody {
+  color: #333;
+}
+
+.table tr {
+  @media (pointer: fine) {
+    &:hover {
+      cursor: pointer;
+      background-color: #ddd;
+    }
+  }
+  &:last-of-type {
+    td {
+      padding-bottom: 40px;
+    }
+  }
+}
+
+.table td {
+  padding: 16px;
+  padding-left: 24px;
+  white-space: nowrap;
+  color: #333;
+  &:last-of-type {
+    text-align: right;
+    padding-right: 24px;
+  }
+}

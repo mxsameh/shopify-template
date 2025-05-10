@@ -1,0 +1,37 @@
+<div id="menu-drawer" class="d-n">
+  <nav>
+    {% for link in linklists['main-menu'].links -%}
+      {% liquid
+        assign has_links = false
+        if link.links.size > 0
+          assign has_links = true
+        endif
+      %}
+
+      <div class="d_item {%if has_links %}has-dd{% endif %}">
+        <div class="d_item-h">
+          <span>
+            {{ link.title | upcase | link_to: link.url }}
+          </span>
+          {% if has_links %}
+            <button>
+              {{ 'i-plus.svg' | inline_asset_content }}
+            </button>
+          {% endif %}
+        </div>
+
+        {% if has_links %}
+          <div class="d_dd">
+            <ul >
+              {% for child_link in link.links %}
+                <li>
+                  {{ child_link.title | link_to: child_link.url }}
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endif %}
+      </div>
+    {%- endfor %}
+  </nav>
+</div>

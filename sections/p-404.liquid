@@ -1,0 +1,17 @@
+{{ 's-p-404.css' | asset_url | stylesheet_tag }}
+
+<div class="p">
+    <h1>404</h1>
+    <h2>PAGE NOT FOUND</h2>
+    <p>We can’t seem to find the page you’re looking for. Try going back to the previous page or navigate to the homepage.</p>
+    <a href="{{ routes.root_url }}">RETURN TO HOMEPAGE</a>
+</div>
+
+{% schema %}
+{
+  "name": "404",
+  "settings": []
+}
+{% endschema %}
+
+

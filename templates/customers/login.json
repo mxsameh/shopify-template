@@ -1,0 +1,9 @@
+{
+    "sections":{
+        "login":{
+            "type":"p-login",
+            "settings":{}
+        }
+    },
+    "order":["login"]
+}

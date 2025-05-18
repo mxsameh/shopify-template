@@ -1,4 +1,3 @@
-[environments.deve]
+[environments.dev]
 theme = "FR"
 store = "4dcc51.myshopify.com"
-password = "shptka_0cfc6f32ef87ac4e39eef67b337a0279"

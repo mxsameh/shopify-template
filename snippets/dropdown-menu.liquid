@@ -1,0 +1,9 @@
+<div class="dd-menu">
+  <ul>
+    {% for link in links %}
+      <li>
+        {{ link.title | upcase | link_to: link.url }}
+      </li>
+    {% endfor %}
+  </ul>
+</div>

@@ -1,6 +1,7 @@
 :root {
   --h-h: 52px;
   --md: 768px;
+  --p-i: 40px;
 }
 .h-s {
   overflow: auto;

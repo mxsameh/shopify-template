@@ -4,40 +4,29 @@
 <div class="h_">
   <div class="h-ph"></div>
   <header id="h" class="h">
+    <!-- Header Left -->
     <div class="h_l">
       {% render 'menu-icon' %}
       <nav class="h_n">
         {% for link in linklists['main-menu'].links -%}
-          {% liquid
-            assign has_links = false
-            if link.links.size > 0
-              assign has_links = true
-            endif
-          %}
-          <div class="h_n-item {%if has_links %}has-dd{% endif %}">
+          <div class="h_n-item">
             {{ link.title | upcase | link_to: link.url }}
-            {% if has_links %}
-              <div class="h_dd">
-                <ul class="">
-                  {% for child_link in link.links %}
-                    <li class="menu-link">
-                      <a href="{{ child_link.url }}">{{ child_link.title }}</a>
-                    </li>
-                  {% endfor %}
-                </ul>
-                <button />
-              </div>
+
+            <!-- Dropdown Menu -->
+            {% if link.links.size > 0 %}
+              {% render 'dropdown-menu', links: link.links %}
             {% endif %}
           </div>
         {%- endfor %}
       </nav>
     </div>
 
+    <!-- Header Middle -->
     <div class="h_m">
       <a href="/">
         {% if settings.logo %}
           <figure>
-            {{ settings.logo | image_url: width: 120 | image_tag }}
+            {{ settings.logo | image_url: width: 200 | image_tag }}
           </figure>
         {% else %}
           <span>
@@ -47,12 +36,15 @@
       </a>
     </div>
 
+    <!-- Header Right -->
     <div class="h_r">
       <button class="h_cb" type="button">
         bag (<span id="cart-count" class="h_cb_count">{{- cart.item_count -}}</span>)
       </button>
     </div>
   </header>
+
+  <!-- MENU DRAWER -->
   {% render 'menu-drawer' %}
 </div>
 

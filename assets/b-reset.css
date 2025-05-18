@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 body {
-  font-family: "si", serif;
+  font-family: "helv", serif;
   overscroll-behavior: none;
 }
 li {

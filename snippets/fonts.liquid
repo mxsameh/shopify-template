@@ -5,17 +5,25 @@
 {% endcomment %}
 <style>
   @font-face {
-    font-family: "si";
-    src: url("{{ 'suisse-r.woff2' | asset_url }}") format("woff2");
+    font-family: "helv";
+    src: url('{{ "f-helvetica-t.woff2" | asset_url }}') format('woff2');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "helv";
+    src: url("{{ 'f-helvetica-r.woff2' | asset_url }}") format("woff2");
     font-weight: normal;
     font-style: normal;
     font-display: swap;
   }
 
   @font-face {
-    font-family: 'si';
-    src: url('{{ "suisse-m.woff2" | asset_url }}') format('woff2');
-    font-weight: 500;
+    font-family: "helv";
+    src: url('{{ "f-helvetica-b.woff2" | asset_url }}') format('woff2');
+    font-weight: 700;
     font-style: normal;
     font-display: swap;
   }

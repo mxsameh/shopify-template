@@ -1,0 +1,31 @@
+{{ 's-video-banner.css' | asset_url | stylesheet_tag }}
+
+<section class="s-video-banner">
+  <figure>
+    {{ section.settings.d_video | video_tag: autoplay: true, muted: true, loop: true }}
+  </figure>
+</section>
+
+{% schema %}
+{
+  "name": "video-banner",
+  "settings": [
+    {
+      "id": "collection_url",
+      "label": "Collection URL",
+      "type": "url"
+    },
+    {
+      "id": "d_video",
+      "label": "Desktop Video",
+      "type": "video"
+    },
+    {
+      "id": "m_video",
+      "label": "Mobile Video",
+      "type": "video"
+    }
+  ],
+  "presets": [{ "name": "Video Banner" }]
+}
+{% endschema %}

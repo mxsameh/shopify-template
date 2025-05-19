@@ -10,7 +10,7 @@
       <nav class="h_n">
         {% for link in linklists['main-menu'].links -%}
           <div class="h_n-item">
-            {{ link.title | upcase | link_to: link.url }}
+            {{ link.title | link_to: link.url }}
 
             <!-- Dropdown Menu -->
             {% if link.links.size > 0 %}

@@ -9,13 +9,16 @@
  */
 {
   "sections": {
-    "banner": {
-      "type": "banner",
+    "video_banner_py4h7j": {
+      "type": "video-banner",
+      "name": "Video Banner",
       "settings": {
         "collection_url": "",
-        "d_image": "shopify://shop_images/he-d-h.webp"
+        "d_video": "shopify://files/videos/ fr25-h.mp4"
       }
     }
   },
-  "order": ["banner"]
+  "order": [
+    "video_banner_py4h7j"
+  ]
 }

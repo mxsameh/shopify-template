@@ -8,18 +8,5 @@
  * ------------------------------------------------------------
  */
 {
-  "current": {
-    "logo": "shopify://shop_images/nctrn-logo.png",
-    "sections": {
-      "header": {
-        "type": "header",
-        "settings": {}
-      },
-      "cart-drawer": {
-        "type": "cart-drawer",
-        "settings": {}
-      }
-    },
-    "content_for_index": []
-  }
+  "markets": {}
 }

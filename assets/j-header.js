@@ -1,27 +1,29 @@
-const $nav_items_with_dropdown = document.querySelectorAll(".h_n .has-dd");
+const $nav_items = document.querySelectorAll(".h_l .h_n-item");
 const $menu_btn = document.querySelector("#menu-icon");
 const $menu_drawer = document.querySelector("#menu-drawer");
 const $drawer_item_with_dropdown = document.querySelectorAll(
   "#menu-drawer .has-dd"
 );
 
-$nav_items_with_dropdown.forEach(($item) => {
-  const $dd = $item.querySelector(".h_dd");
-  const $btn = $item.querySelector("button");
-  $item?.addEventListener("mouseenter", () => {
-    $dd.style.display = "flex";
+// NAV DROPDOWN
+$nav_items.forEach(($item) => {
+  // Nav item dropdown
+  const $item_link = $item.querySelector("a");
+  $item_link?.addEventListener("click", (e) => {
+    const href = $item_link.getAttribute("href");
+    if (href != "#") return;
+    e.preventDefault();
+    $item.classList.toggle("active");
   });
 
-  $item?.addEventListener("mouseleave", (e) => {
-    $dd.style.display = "none";
-  });
-
-  $btn?.addEventListener("mouseenter", () => {
-    $dd.style.display = "none";
+  // Dropdown close button
+  const $close_btn = $item.querySelector("button");
+  $close_btn.addEventListener("click", () => {
+    $item.classList.remove("active");
   });
 });
 
-// MENU BTN
+// MENU DRAWER BTN
 $menu_btn.addEventListener("click", () => {
   $menu_btn.classList.toggle("open");
   // Open drawer

@@ -2,10 +2,9 @@
   height: var(--h-h);
 }
 .h {
-  padding: 16px 24px;
+  padding-inline: var(--p-i);
   height: var(--h-h);
   width: 100%;
-  border-bottom: 1px solid #333;
   background: white;
   position: fixed;
   top: 0;
@@ -66,16 +65,29 @@ DROPDOWN MENU
   position: absolute;
   top: var(--h-h);
   left: 0;
+  display: flex;
+  opacity: 0;
+  visibility: hidden;
+}
+.h_n-item.active .dd-menu {
+  opacity: 1;
+  visibility: visible;
 }
 
 .dd-menu ul {
+  flex-shrink: 0;
   width: 500px;
   padding-inline: var(--p-i);
   display: flex;
   flex-direction: column;
   gap: 16px;
-  background-color: red;
+  background-color: white;
   height: 100%;
+}
+
+.dd-menu button {
+  width: 100%;
+  cursor: unset;
 }
 
 /*****************

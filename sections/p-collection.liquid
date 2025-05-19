@@ -1,16 +1,7 @@
 <script src="{{ 'j-collection.js' | asset_url }}" defer></script>
 {{ 's-collection.css' | asset_url | stylesheet_tag }}
 
-{% if collection == blank %}
-  <p>Collection not found</p>
-{% endif %}
-
-<main class="collection-p_">
-  <div class="collection_info">
-    <h2>{{ collection.title }}</h2>
-    <p>{{ collection.description | default: 'This is a collection description placeholder' }}</p>
-  </div>
-
+<div class="p">
   <div class="collection_sort_">
     <select class="collection_sort" id="sort-by">
       {% assign sort_by = collection.sort_by | default: collection.default_sort_by %}
@@ -28,21 +19,24 @@
     </select>
   </div>
 
+  {% comment %} {% assign breadcrumbs = collection.metafields.custom.breadcrumbs.value %} {% endcomment %}
+
+
   {% paginate collection.products by 6 %}
     <div class="collection_products">
       {% for product in collection.products %}
-        <div class="cp_">
-          <a class="cp" href="{{ product.url }}">
-            <figure>
-              {{ product.featured_image | image_url: width: 400 | image_tag }}
-            </figure>
-            <div class="cp_info">
-              <h3>{{ product.title }}</h3>
-              <p>{{ product.price | money_without_currency | remove:'.00'}} {{ shop.currency }}</p>
-              {% comment %} {{ product. }} {% endcomment %}
-            </div>
-          </a>
-        </div>
+        <a class="cp" href="{{ product.url }}">
+          <figure>
+            {{ product.featured_image | image_url: width: 400 | image_tag }}
+          </figure>
+          <div class="cp_info">
+            <h3>{{ product.title }}</h3>
+            <p>
+              {{ product.price | money_without_currency | remove: '.00' }}
+              {{ shop.currency }}
+            </p>
+          </div>
+        </a>
       {% endfor %}
     </div>
 
@@ -50,7 +44,7 @@
       {{ paginate | default_pagination }}
     </div>
   {% endpaginate %}
-</main>
+</div>
 
 {% schema %}
 {

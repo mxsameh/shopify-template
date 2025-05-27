@@ -1,13 +1,15 @@
 .recommendations {
   margin-top: 40px;
   border-top: 1px solid black;
-  padding-block: 24px;
+  padding: 40px var(--p-i);
 }
 .recommendations h2 {
   font-size: 16px;
   font-weight: 500;
+  @media (width>1000px) {
+    font-size: 18px;
+  }
 }
 .products-slider_ {
   margin-top: 24px;
 }
-

@@ -3,20 +3,21 @@
 
 <div class="cd_">
   <div class="cd">
-    {% comment %} Header {% endcomment %}
+    {% comment %}
+      HEADER
+    {% endcomment %}
     <header class="cd_h">
-      <h2>SHOPPING BAG</h2>
+      <h2>BAG</h2>
 
       <div class="cd_h_r">
         <div data-count="{{ cart.item_count }}" class="cd_h_count_">
-          <span class="cd_h_count">
+          (<span class="cd_h_count">
             {% if cart.item_count > 0 %}
               {{- cart.item_count -}}
             {% else %}
               0
-            {% endif %}
-          </span>
-          items
+            {% endif %} </span
+          >)
         </div>
 
         <button class="cd_h_close" type="button">
@@ -36,45 +37,51 @@
                 {{ item.image | image_url: width: 200 | image_tag }}
               </div>
 
-                <div class="cd_item-info">
-                  <div class="info_t">
-                    <h3 class="cd_item-title">
-                        {{ item.product.title | link_to: item.url }}
-                    </h3>
-                    <p class="cd_item-options">{{ item.variant.title }}</p>
+              <div class="cd_item-info">
+                <div class="info_t">
+                  <h3 class="cd_item-title">
+                    {{ item.product.title | link_to: item.url }}
+                  </h3>
+                  <p class="cd_item-options">{{ item.variant.title }}</p>
 
-                    <div class="cd_item-quantity">
-                      <button id="minus" type="button" >
-                        {{- 'i-minus.svg' | inline_asset_content -}}
-                      </button>
-                      <input type="text" readonly value="{{ item.quantity }}">
-                      <button id="plus" type="button">
-                        {{- 'i-plus.svg' | inline_asset_content -}}
-                      </button>
-                    </div>
-
-                  </div>
-                  <div class="info_b">
-                    {{ 'Remove' | link_to: item.url_to_remove  }}
-                    <p>{{ item.final_line_price | money }}</p>
+                  <div class="cd_item-quantity">
+                    <button id="minus" type="button">
+                      {{- 'i-minus.svg' | inline_asset_content -}}
+                    </button>
+                    <input type="text" readonly value="{{ item.quantity }}">
+                    <button id="plus" type="button">
+                      {{- 'i-plus.svg' | inline_asset_content -}}
+                    </button>
                   </div>
                 </div>
+                <div class="info_b">
+                  {{ 'Remove' | link_to: item.url_to_remove }}
+                  <p>{{ item.final_line_price | money }}</p>
+                </div>
+              </div>
             </li>
           {% endfor %}
         </ul>
-
+        {% comment %}
+          FOOTER
+        {% endcomment %}
         <footer class="cd_f">
-          {% if cart.total_discounts > 0 %}
-            <div class="cd_f_discount">
-              <h3>Discount</h3>
-              <span>{{ cart.total_discounts | money }}</span>
+          <div class="cd_f-t">
+            {% if cart.total_discounts > 0 %}
+              <div class="cd_f_discount">
+                <h3>Discount</h3>
+                <span>{{ cart.total_discounts | money }}</span>
+              </div>
+            {% endif %}
+            <div class="cd_f_subtotal">
+              <h3>Subtotal</h3>
+              <span>{{ cart.total_price | money }}</span>
             </div>
-          {% endif %}
-          <div class="cd_f_subtotal">
-            <h3>Subtotal</h3>
-            <span>{{ cart.total_price | money }}</span>
           </div>
-          <button type="submit" name="checkout">Checkout</button>
+          <div class="cd_f-b">
+            <p>Shipping & Taxes are calculated at checkout</p>
+            <button type="submit" name="checkout">CHECKOUT</button>
+          </div>
         </footer>
       {% endif %}
     {% endform %}

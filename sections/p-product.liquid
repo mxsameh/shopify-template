@@ -14,35 +14,33 @@
     {% comment %}
       IMAGES
     {% endcomment %}
-    <div class="product_gallery_">
-      <div class="product_gallery">
-        {% for media in product.media %}
-          {% if media.media_type == 'image' %}
-            <figure class="product_fig">
-              <img
-                srcset="
-                  {%- if media.preview_image.width >= 550 -%}{{ media.preview_image | image_url: width: 550 }} 550w,{%- endif -%}
-                  {%- if media.preview_image.width >= 1100 -%}{{ media.preview_image | image_url: width: 1100 }} 1100w,{%- endif -%}
-                  {%- if media.preview_image.width >= 1445 -%}{{ media.preview_image | image_url: width: 1445 }} 1445w,{%- endif -%}
-                  {%- if media.preview_image.width >= 1680 -%}{{ media.preview_image | image_url: width: 1680 }} 1680w,{%- endif -%}
-                  {%- if media.preview_image.width >= 2048 -%}{{ media.preview_image | image_url: width: 2048 }} 2048w,{%- endif -%}
-                  {%- if media.preview_image.width >= 2200 -%}{{ media.preview_image | image_url: width: 2200 }} 2200w,{%- endif -%}
-                  {%- if media.preview_image.width >= 2890 -%}{{ media.preview_image | image_url: width: 2890 }} 2890w,{%- endif -%}
-                  {%- if media.preview_image.width >= 4096 -%}{{ media.preview_image | image_url: width: 4096 }} 4096w,{%- endif -%}
-                  {{ media.preview_image | image_url }} {{ media.preview_image.width }}w
-                "
-                sizes="(min-width: 750px) calc(100vw - 22rem), 1100px"
-                src="{{ media.preview_image | image_url: width: 1445 }}"
-                alt="{{ media.alt | escape }}"
-                loading="lazy"
-                width="1100"
-                height="{{ 1100 | divided_by: media.preview_image.aspect_ratio | ceil }}"
-                data-media-id="{{ media.id }}"
-              >
-            </figure>
-          {% endif %}
-        {% endfor %}
-      </div>
+    <div class="product_gallery h-s">
+      {% for media in product.media %}
+        {% if media.media_type == 'image' %}
+          <figure class="product_fig">
+            <img
+              srcset="
+                {%- if media.preview_image.width >= 550 -%}{{ media.preview_image | image_url: width: 550 }} 550w,{%- endif -%}
+                {%- if media.preview_image.width >= 1100 -%}{{ media.preview_image | image_url: width: 1100 }} 1100w,{%- endif -%}
+                {%- if media.preview_image.width >= 1445 -%}{{ media.preview_image | image_url: width: 1445 }} 1445w,{%- endif -%}
+                {%- if media.preview_image.width >= 1680 -%}{{ media.preview_image | image_url: width: 1680 }} 1680w,{%- endif -%}
+                {%- if media.preview_image.width >= 2048 -%}{{ media.preview_image | image_url: width: 2048 }} 2048w,{%- endif -%}
+                {%- if media.preview_image.width >= 2200 -%}{{ media.preview_image | image_url: width: 2200 }} 2200w,{%- endif -%}
+                {%- if media.preview_image.width >= 2890 -%}{{ media.preview_image | image_url: width: 2890 }} 2890w,{%- endif -%}
+                {%- if media.preview_image.width >= 4096 -%}{{ media.preview_image | image_url: width: 4096 }} 4096w,{%- endif -%}
+                {{ media.preview_image | image_url }} {{ media.preview_image.width }}w
+              "
+              sizes="(min-width: 750px) calc(100vw - 22rem), 1100px"
+              src="{{ media.preview_image | image_url: width: 1445 }}"
+              alt="{{ media.alt | escape }}"
+              loading="lazy"
+              width="1100"
+              height="{{ 1100 | divided_by: media.preview_image.aspect_ratio | ceil }}"
+              data-media-id="{{ media.id }}"
+            >
+          </figure>
+        {% endif %}
+      {% endfor %}
     </div>
 
     {% comment %}
@@ -52,16 +50,16 @@
       <div class="product_info">
         <h1 class="product_title">{{ product.title }}</h1>
         <div class="product_price">
+          <div class="current-price">
+            <span>{{ current_variant.price | money_without_currency | remove: '.00' }}</span>
+            {{ shop.currency }}
+          </div>
           <div
             class="compare-price {%unless compare_at_price %}d-n{% endunless %}"
           >
-            {{ current_variant.compare_at_price | money_without_trailing_zeros }}
             <span>
-              {{ shop.currency }}
+              {{ current_variant.compare_at_price | money_without_currency | remove: '.00' }}
             </span>
-          </div>
-          <div class="current-price">
-            <span>{{ current_variant.price | money_without_currency | remove: '.00' }}</span>
             {{ shop.currency }}
           </div>
         </div>

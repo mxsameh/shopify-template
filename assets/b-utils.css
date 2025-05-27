@@ -1,7 +1,9 @@
 :root {
   --h-h: 80px;
-  --md: 768px;
-  --p-i: 40px;
+  --p-i: 20px;
+  @media (width> 1024px) {
+    --p-i: 40px;
+  }
 }
 .h-s {
   overflow: auto;

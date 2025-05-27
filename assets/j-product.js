@@ -1,4 +1,4 @@
-const $product_form = document.querySelector(".product_form");
+const $product_form = document.querySelector(".pf");
 const product_variants = product.variants;
 
 const getSelectedOptions = () => {
@@ -53,11 +53,11 @@ const formatPrice = (number) => {
 };
 
 const updateProductInfo = (variant) => {
-  const { featured_image, available, price, compare_at_price } = variant;
+  const {  available, price, compare_at_price } = variant;
 
   // QUERY SELECTORS
   const $product_compare_price = document.querySelector(
-    ".product_price .compare-price"
+    ".product_price .compare-price span"
   );
   const $product_current_price = document.querySelector(
     ".product_price .current-price span"

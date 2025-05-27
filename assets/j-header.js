@@ -18,7 +18,8 @@ $nav_items.forEach(($item) => {
 
   // Dropdown close button
   const $close_btn = $item.querySelector("button");
-  $close_btn.addEventListener("click", () => {
+
+  $close_btn?.addEventListener("click", () => {
     $item.classList.remove("active");
   });
 });

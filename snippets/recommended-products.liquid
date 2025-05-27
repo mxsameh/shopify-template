@@ -1,45 +1,44 @@
 {{ 's-recommended-products.css' | asset_url | stylesheet_tag }}
-{% assign limit = 6 %}
+{% liquid
+  assign limit = 6
+  assign has_recommendations = false
+  if recommendations.performed? and recommendations.products_count > 0
+    assign has_recommendations = true
+  endif
+%}
 
-<div
-  class="recommendations"
-  data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit={{limit}}&intent=related"
->
-  {%- if recommendations.performed? and recommendations.products_count > 0 -%}
+<div class="_">
+  <div
+    class="
+      recommendations
+      {% if has_recommendations == false %}d-n{% endif %}
+    "
+    data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit={{limit}}&intent=related"
+  >
     <h2>RECOMMENDED PRODUCTS</h2>
 
     <div class="products-slider_">
       {% render 'products-slider', products: recommendations.products %}
     </div>
-  {%- endif -%}
+  </div>
 </div>
 
 {% javascript %}
-  const handleIntersection = (entries, observer) => {
-    if (!entries[0].isIntersecting) return;
+  const recommendations = document.querySelector('.recommendations');
+  const url = recommendations.dataset.url;
 
-    observer.unobserve(productRecommendationsSection);
+  const getRecommendations = async () => {
+    const res = await fetch(url);
+    const text = await res.text();
 
-    const url = productRecommendationsSection.dataset.url;
+    const html = document.createElement('div');
+    html.innerHTML = text;
 
-    fetch(url)
-      .then((response) => response.text())
-      .then((text) => {
-        const html = document.createElement('div');
-        html.innerHTML = text;
-        const recommendations = html.querySelector('.recommendations');
-
-        if (recommendations && recommendations.innerHTML.trim().length) {
-          productRecommendationsSection.innerHTML = recommendations.innerHTML;
-        }
-      })
-      .catch((e) => {
-        console.error(e);
-      });
+    if (recommendations && recommendations.innerHTML.trim().length) {
+      const x = html.querySelector('.recommendations');
+      recommendations.parentNode.innerHTML = x.parentNode.innerHTML;
+    }
   };
 
-  const productRecommendationsSection = document.querySelector('.recommendations');
-  const observer = new IntersectionObserver(handleIntersection, { rootMargin: '0px 0px 200px 0px' });
-
-  observer.observe(productRecommendationsSection);
+  getRecommendations();
 {% endjavascript %}

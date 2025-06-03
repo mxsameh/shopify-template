@@ -1,0 +1,55 @@
+{{ 's-footer.css' | asset_url | stylesheet_tag }}
+
+{% liquid
+  assign tiktok_link = 'https://www.tiktok.com/@thefrontrowstudios'
+  assign ig_link = 'https://www.instagram.com/thefrontrowstudios/'
+  assign pinterest_link = 'https://www.pinterest.com/THEFRONTROWSTUDIOS/'
+%}
+
+{% comment %}
+  <div class="footer__content">
+    <p>© {{ 'now' | date: '%Y' }} Your Company Name. All rights reserved.</p>
+    <p><a href="{{ shop.url }}/privacy-policy">Privacy Policy</a></p>
+    <p><a href="{{ shop.url }}/terms-of-service">Terms of Service</a></p>
+  </div>
+{% endcomment %}
+
+<footer class="f">
+  <ul>
+    <li>
+      {{ 'About' | link_to: '/about' }}
+    </li>
+    <li>Press</li>
+    <li>Contact</li>
+  </ul>
+
+  <ul>
+    <li>Customer Service</li>
+    <li>Shipping Policies</li>
+    <li>Exchanges & Returns</li>
+  </ul>
+
+  <ul>
+    <li>
+      {{ 'Instagram' | link_to: ig_link }}
+    </li>
+    <li>
+      {{ 'Pinterest' | link_to: pinterest_link }}
+    </li>
+    <li>
+      {{ 'Tiktok' | link_to: tiktok_link }}
+    </li>
+  </ul>
+
+  <div>
+    <span>© {{ 'now' | date: '%Y' }}</span>
+    <p>THE FRONT ROW STUDIOS</p>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "footer",
+  "settings": []
+}
+{% endschema %}

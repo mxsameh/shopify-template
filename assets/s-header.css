@@ -24,6 +24,10 @@
 .h_r {
   display: flex;
   justify-content: flex-end;
+  gap: 28px;
+}
+.h_r div {
+  font-size: 14px;
 }
 
 .h_m a figure {
@@ -37,7 +41,6 @@
 
 .h_cb {
   font-size: 14px;
-  text-transform: uppercase;
 }
 .h_cb_count {
   color: #333;

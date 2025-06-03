@@ -1,0 +1,64 @@
+{{ 's-newsletter.css' | asset_url | stylesheet_tag }}
+
+<div class="nl">
+  <div class="nl_logo">
+    {{ 'i-logo.svg' | inline_asset_content }}
+  </div>
+  {% form 'customer', class: 'nl_form' %}
+    <input type="hidden" name="contact[tags]" value="newsletter">
+    <fieldset>
+      <label for="NewsletterForm--{{ section.id }}">sign up for exclusive content</label>
+      <input
+        id="NewsletterForm--{{ section.id }}"
+        type="email"
+        name="contact[email]"
+        autocorrect="off"
+        autocapitalize="off"
+        autocomplete="email"
+        {% if form.errors %}
+          autofocus
+        {% endif %}
+        placeholder="Your email address"
+        required
+      >
+      <button
+        type="submit"
+      >
+        Submit
+      </button>
+    </fieldset>
+
+    {%- if form.errors -%}
+      <small class="newsletter-form__message form__message" id="Newsletter-error--{{ section.id }}">
+        {{- form.errors.translated_fields.email | capitalize }}
+        {{ form.errors.messages.email -}}
+      </small>
+    {%- endif -%}
+    {%- if form.posted_successfully? -%}
+      <h3
+        class="newsletter-form__message newsletter-form__message--success form__message"
+        id="Newsletter-success--{{ section.id }}"
+        tabindex="-1"
+        autofocus
+      >
+        Welcome to the family!
+      </h3>
+    {%- endif -%}
+  {% endform %}
+</div>
+
+{% javascript %}
+  const form = document.querySelector('.nl_form');
+  console.log('hee', form);
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+  });
+{% endjavascript %}
+
+{% schema %}
+{
+  "name": "footer",
+  "settings": []
+}
+{% endschema %}

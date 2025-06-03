@@ -1,0 +1,78 @@
+.nl {
+  max-width: 600px;
+  margin-inline: auto;
+  padding-block: 32px;
+  padding-inline: 20px;
+  border-top: 1px solid #bbb;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  @media (width > 860px) {
+    padding-block: 40px;
+    max-width: unset;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.nl_logo {
+  flex-basis: 50%;
+  flex-shrink: 0;
+  max-width: 260px;
+}
+.nl fieldset {
+  width: 100%;
+  flex-basis: 100%;
+  display: flex;
+  gap: 24px 8px;
+  flex-wrap: wrap;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e5e5e5;
+  @media (width > 860px) {
+    flex-basis: 50%;
+  }
+  @media (width < 860px) {
+    border-bottom: none;
+  }
+}
+.nl label {
+  width: 100%;
+  font-size: 15px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.nl input {
+  width: calc(100% - 78px - 8px);
+  border: none;
+  outline: none;
+  padding-left: 8px;
+  font-size: 14px;
+  @media (width < 860px) {
+    border-bottom: 1px solid #e5e5e5;
+    padding-bottom: 4px;
+    width: 100%;
+    &:focus {
+      border-color: black;
+    }
+  }
+}
+
+.nl button {
+  flex-shrink: 0;
+  padding: 8px 16px;
+  text-transform: capitalize;
+  font-size: 14px;
+  @media (pointer: fine) {
+    &:hover #newsletter-submit-btn {
+      transform: translateY(-14px);
+    }
+  }
+  @media (width < 860px) {
+    padding: 10px 16px;
+    color: white;
+    background-color: black;
+    border-radius: 50px;
+    width: 100%;
+  }
+}

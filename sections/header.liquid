@@ -3,6 +3,7 @@
 
 <div class="h_">
   <div class="h-ph"></div>
+
   <header id="h" class="h">
     <!-- Header Left -->
     <div class="h_l">
@@ -38,8 +39,10 @@
 
     <!-- Header Right -->
     <div class="h_r">
+      <div>Search</div>
+      <div>{{ 'Login' | link_to: routes.account_login_url }}</div>
       <button class="h_cb" type="button">
-        bag (<span id="cart-count" class="h_cb_count">{{- cart.item_count -}}</span>)
+        Shopping bag (<span id="cart-count" class="h_cb_count">{{- cart.item_count -}}</span>)
       </button>
     </div>
   </header>

@@ -1,9 +1,7 @@
 {{ 's-footer.css' | asset_url | stylesheet_tag }}
 
 {% liquid
-  assign tiktok_link = 'https://www.tiktok.com/@thefrontrowstudios'
-  assign ig_link = 'https://www.instagram.com/thefrontrowstudios/'
-  assign pinterest_link = 'https://www.pinterest.com/THEFRONTROWSTUDIOS/'
+  assign ig_link = 'https://www.instagram.com/nctrnstudio'
 %}
 
 {% comment %}
@@ -17,10 +15,10 @@
 <footer class="f">
   <ul>
     <li>
-      {{ 'About' | link_to: '/about' }}
+      {{ 'About the Brand' | link_to: '/about' }}
     </li>
-    <li>Press</li>
-    <li>Contact</li>
+    <li>{{ 'Contact Us' | link_to: '/contact' }}</li>
+    <li>{{ 'Instagram' | link_to: ig_link }}</li>
   </ul>
 
   <ul>
@@ -33,17 +31,11 @@
     <li>
       {{ 'Instagram' | link_to: ig_link }}
     </li>
-    <li>
-      {{ 'Pinterest' | link_to: pinterest_link }}
-    </li>
-    <li>
-      {{ 'Tiktok' | link_to: tiktok_link }}
-    </li>
   </ul>
 
   <div>
     <span>© {{ 'now' | date: '%Y' }}</span>
-    <p>THE FRONT ROW STUDIOS</p>
+    <p>nctrn</p>
   </div>
 </footer>
 

@@ -12,7 +12,7 @@
     {% section 'header' %}
     {% section 'cart-drawer' %}
     {{ content_for_layout }}
-    {% section 'newsletter' %}
+    {% comment %} {% section 'newsletter' %} {% endcomment %}
     {% section 'footer' %}
     <script src="{{ 'j-global.js' | asset_url }}" defer></script>
   </body>

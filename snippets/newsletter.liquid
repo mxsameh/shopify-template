@@ -1,31 +1,29 @@
 {{ 's-newsletter.css' | asset_url | stylesheet_tag }}
 
-<div class="nl">
-  <div class="nl_logo">
-    {{ 'i-logo.svg' | inline_asset_content }}
-  </div>
   {% form 'customer', class: 'nl_form' %}
     <input type="hidden" name="contact[tags]" value="newsletter">
     <fieldset>
-      <label for="NewsletterForm--{{ section.id }}">sign up for exclusive content</label>
-      <input
-        id="NewsletterForm--{{ section.id }}"
-        type="email"
-        name="contact[email]"
-        autocorrect="off"
-        autocapitalize="off"
-        autocomplete="email"
-        {% if form.errors %}
-          autofocus
-        {% endif %}
-        placeholder="Your email address"
-        required
-      >
-      <button
-        type="submit"
-      >
-        Submit
-      </button>
+      <label for="NewsletterForm--{{ section.id }}">Subscribe to our Newsletter</label>
+      <div>
+        <input
+          id="NewsletterForm--{{ section.id }}"
+          type="email"
+          name="contact[email]"
+          autocorrect="off"
+          autocapitalize="off"
+          autocomplete="email"
+          {% if form.errors %}
+            autofocus
+          {% endif %}
+          placeholder="Your email address"
+          required
+        >
+        <button
+          type="submit"
+        >
+          {{ 'i-chev.svg' | inline_asset_content }}
+        </button>
+      </div>
     </fieldset>
 
     {%- if form.errors -%}
@@ -45,7 +43,6 @@
       </h3>
     {%- endif -%}
   {% endform %}
-</div>
 
 {% javascript %}
   const form = document.querySelector('.nl_form');
@@ -55,10 +52,3 @@
     e.preventDefault();
   });
 {% endjavascript %}
-
-{% schema %}
-{
-  "name": "footer",
-  "settings": []
-}
-{% endschema %}

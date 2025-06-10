@@ -1,5 +1,5 @@
-<script src="{{ 'j-collection.js' | asset_url }}" defer></script>
 {{ 's-collection.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'j-collection.js' | asset_url }}" defer></script>
 
 <div class="p">
   <div class="collection_sort_">
@@ -20,7 +20,6 @@
   </div>
 
   {% comment %} {% assign breadcrumbs = collection.metafields.custom.breadcrumbs.value %} {% endcomment %}
-
 
   {% paginate collection.products by 6 %}
     <div class="collection_products">

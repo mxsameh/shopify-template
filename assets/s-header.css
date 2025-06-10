@@ -28,6 +28,10 @@
 }
 .h_r div {
   font-size: 14px;
+  display: none;
+  @media (width > 768px) {
+    display: block;
+  }
 }
 
 .h_m a figure {
@@ -54,6 +58,7 @@
   }
 }
 .h_n-item {
+  text-transform: uppercase;
 }
 .h_n a {
   font-size: 14px;
@@ -91,6 +96,8 @@ DROPDOWN MENU
 .dd-menu button {
   width: 100%;
   cursor: unset;
+  background-color: rgba(0, 0, 0, .3);
+  backdrop-filter: blur(10px);
 }
 
 /*****************
@@ -166,7 +173,7 @@ MENU DRAWER
 }
 
 .d_item {
-  padding: 16px 20px;
+  padding: 16px var(--p-i);
   border-bottom: 1px solid #333;
 }
 .d_item.opened svg {
@@ -183,7 +190,7 @@ MENU DRAWER
   font-weight: 500;
 }
 .d_item svg {
-  width: 20px;
+  width: 14px;
   transition: transform 0.2s ease-out;
 }
 .d_dd {

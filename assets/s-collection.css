@@ -1,4 +1,5 @@
 .p {
+  padding-inline: var(--p-i);
 }
 
 .collection_sort_ {

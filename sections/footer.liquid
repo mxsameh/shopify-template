@@ -13,29 +13,22 @@
 {% endcomment %}
 
 <footer class="f">
-  <ul>
-    <li>
-      {{ 'About the Brand' | link_to: '/about' }}
-    </li>
-    <li>{{ 'Contact Us' | link_to: '/contact' }}</li>
-    <li>{{ 'Instagram' | link_to: ig_link }}</li>
-  </ul>
+  <div class="f_t">
+    <ul>
+      <li>
+        {{ 'About the Brand' | link_to: '/about' }}
+      </li>
+      <li>{{ 'Contact Us' | link_to: '/contact' }}</li>
+      <li>{{ 'Instagram' | link_to: ig_link }}</li>
+    </ul>
 
-  <ul>
-    <li>Customer Service</li>
-    <li>Shipping Policies</li>
-    <li>Exchanges & Returns</li>
-  </ul>
+    <div class="nl">
+      {% render 'newsletter' %}
+    </div>
+  </div>
 
-  <ul>
-    <li>
-      {{ 'Instagram' | link_to: ig_link }}
-    </li>
-  </ul>
-
-  <div>
-    <span>© {{ 'now' | date: '%Y' }}</span>
-    <p>nctrn</p>
+  <div class="f_b">
+    <p>nctrn © 20{{ 'now' | date: '%y' }}</p>
   </div>
 </footer>
 

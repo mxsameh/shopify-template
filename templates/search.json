@@ -1,0 +1,9 @@
+{
+  "sections": {
+    "search": {
+      "type": "p-search",
+      "settings": {}
+    }
+  },
+  "order": ["search"]
+}

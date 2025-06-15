@@ -1,0 +1,12 @@
+<a class="cp" href="{{ product.url }}">
+  <figure>
+    {{ product.featured_image | image_url: width: 400 | image_tag }}
+  </figure>
+  <div class="cp_info">
+    <h3>{{ product.title }}</h3>
+    <p>
+      {{ product.price | money_without_currency | remove: '.00' }}
+      {{ shop.currency }}
+    </p>
+  </div>
+</a>

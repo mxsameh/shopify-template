@@ -1,0 +1,32 @@
+.cp {
+  max-width: 400px;
+  display: block;
+}
+
+.cp figure {
+  aspect-ratio: 2/3;
+}
+.cp_info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 12px;
+  gap: 8px;
+  @media (width > 1008px) {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 40px;
+  }
+}
+.cp_info h3 {
+  font-size: 14px;
+  font-weight: normal;
+  color: #333;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.cp_info p {
+  flex-shrink: 0;
+  font-size: 12px;
+}

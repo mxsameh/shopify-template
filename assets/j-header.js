@@ -4,6 +4,21 @@ const $menu_drawer = document.querySelector("#menu-drawer");
 const $drawer_item_with_dropdown = document.querySelectorAll(
   "#menu-drawer .has-dd"
 );
+const $header_search = document.getElementById("header-search");
+const $search_modal = document.querySelector(".search-modal");
+const $search_modal_close = document.querySelector(".search-modal_close");
+const $search_modal_input = document.querySelector("#Search-input");
+
+// SEARCH BUTTON
+$header_search.addEventListener("click", (e) => {
+  $search_modal.style.display = "block";
+});
+
+$search_modal_close.addEventListener("click", (e) => {
+  $search_modal.style.display = "none";
+  $search_modal_input.value = "";
+  $search_modal_input.dispatchEvent(new Event("input"));
+});
 
 // NAV DROPDOWN
 $nav_items.forEach(($item) => {

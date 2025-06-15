@@ -1,0 +1,39 @@
+{{ 's-collection-product.css' | asset_url | stylesheet_tag }}
+{{ 's-predictive-search.css' | asset_url | stylesheet_tag }}
+
+{%- if predictive_search.performed -%}
+  <div id="predictive-search-results">
+    <!-- SUGGESTIONS -->
+    <div class="ps-suggestions">
+      <h3>SUGGESTIONS</h3>
+      <ul>
+        {%- for query in predictive_search.resources.queries -%}
+          <li>
+            <a href="{{ query.url }}" class="predictive-search__item link link--text" tabindex="-1">
+              <div>
+                <p
+                  aria-label="{{ query.text }}"
+                >
+                  {{ query.styled_text }}
+                </p>
+              </div>
+            </a>
+          </li>
+        {%- endfor -%}
+      </ul>
+    </div>
+
+    {%- if predictive_search.resources.products.size > 0 -%}
+      <h3 id="predictive-search-products">Products</h3>
+
+      <ul class="ps_products">
+        {%- for product in predictive_search.resources.products -%}
+          <li>
+            {% render 'collection-product', product: product %}
+          </li>
+        {%- endfor -%}
+      </ul>
+    {%- endif -%}
+    <button>Search for “{{ predictive_search.terms }}”</button>
+  </div>
+{%- endif -%}

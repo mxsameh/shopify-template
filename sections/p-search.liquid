@@ -1,25 +1,22 @@
-<div>
-  <h2>Search</h2>
-  <form action="{{ routes.search_url }}">
-    <input
-      type="text"
-      placeholder="Search"
-      name="q"
-      value="{{ search.terms | escape }}"
-    >
-    <input type="submit" value="Search">
-  </form>
+{{ 's-collection-product.css' | asset_url | stylesheet_tag }}
+{{ 's-p-search.css' | asset_url | stylesheet_tag }}
+
+<div class="search">
+  <div class="search_h">
+    <h2>RESULTS FOR "{{ search.terms | upcase }}"</h2>
+    <span>({{ search.results_count }})</span>
+  </div>
+
   <div class="search_results">
     {% for item in search.results %}
-      <div>
-        {{ item.title | link_to: item.url }}
-        <figure>
-          {{ item.featured_image | image_url: width: 500 | image_tag }}
-        </figure>
+      <div class="search_item">
+        {% render 'collection-product', product: item %}
       </div>
     {% endfor %}
   </div>
+
 </div>
+
 {% schema %}
 {
   "name": "search",

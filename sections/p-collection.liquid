@@ -1,4 +1,4 @@
-{{ 's-collection.css' | asset_url | stylesheet_tag }}
+{{ 's-p-collection.css' | asset_url | stylesheet_tag }}
 <script src="{{ 'j-collection.js' | asset_url }}" defer></script>
 
 <div class="p">
@@ -24,18 +24,7 @@
   {% paginate collection.products by 6 %}
     <div class="collection_products">
       {% for product in collection.products %}
-        <a class="cp" href="{{ product.url }}">
-          <figure>
-            {{ product.featured_image | image_url: width: 400 | image_tag }}
-          </figure>
-          <div class="cp_info">
-            <h3>{{ product.title }}</h3>
-            <p>
-              {{ product.price | money_without_currency | remove: '.00' }}
-              {{ shop.currency }}
-            </p>
-          </div>
-        </a>
+        {% render 'collection-product', product: product %}
       {% endfor %}
     </div>
 

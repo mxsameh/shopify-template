@@ -91,6 +91,11 @@ DROPDOWN MENU
   gap: 16px;
   background-color: white;
   height: 100%;
+  opacity: 50%;
+  transition: opacity 0.3s ease-out;
+}
+.h_n-item.active .dd-menu ul {
+  opacity: 1;
 }
 
 .dd-menu button {

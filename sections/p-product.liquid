@@ -84,11 +84,11 @@
               default: '100% Cotton'
             %}
           {% endcomment %}
-          {% assign x = 'Fit: '
-            | append: product.metafields.custom.size_and_fit
-            | append: '<br/>'
-            | append: 'Materials: '
+          {% assign x = 'MATERIALS: '
             | append: product.metafields.custom.material
+            | append: '<br>'
+            | append: 'FIT: '
+            | append: product.metafields.custom.fit
           %}
 
           {% render 'accordion', heading: 'MORE INFORMATION', content: x, default: 'Contact for more info.' %}

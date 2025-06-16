@@ -3,6 +3,8 @@
 
 }
 .s-video-banner figure{
+    width:75%;
+    margin-inline: auto;
     aspect-ratio: 16/9;
     overflow: hidden;
     background-color: #e5e5e5;

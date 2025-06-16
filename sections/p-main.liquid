@@ -1,0 +1,42 @@
+{{ 's-p-main.css' | asset_url | stylesheet_tag }}
+
+<div class="p">
+  <section class="s-video">
+    <a href="{{ section.settings.collection_url }}">
+      <figure>
+        {{ section.settings.d_video | video_tag: autoplay: true, muted: true, loop: true }}
+      </figure>
+    </a>
+    <h3>
+      {{ section.settings.title | link_to: section.settings.collection_url }}
+    </h3>
+  </section>
+</div>
+
+{% schema %}
+{
+  "name": "main",
+  "settings": [
+    {
+      "id": "d_video",
+      "label": "Desktop Video",
+      "type": "video"
+    },
+    {
+      "id": "m_video",
+      "label": "Mobile Video",
+      "type": "video"
+    },
+    {
+      "id": "collection_url",
+      "label": "Collection URL",
+      "type": "url"
+    },
+    {
+      "id": "title",
+      "label": "Title",
+      "type": "text"
+    }
+  ]
+}
+{% endschema %}

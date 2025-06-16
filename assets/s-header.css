@@ -27,7 +27,7 @@
   gap: 28px;
 }
 .h_r div {
-  font-size: 14px;
+  font-size: 12px;
   display: none;
   @media (width > 768px) {
     display: block;
@@ -44,7 +44,7 @@
 }
 
 .h_cb {
-  font-size: 14px;
+  font-size: 12px;
 }
 .h_cb_count {
   color: #333;
@@ -61,7 +61,7 @@
   text-transform: uppercase;
 }
 .h_n a {
-  font-size: 14px;
+  font-size: 12px;
 }
 
 /*****************
@@ -76,6 +76,7 @@ DROPDOWN MENU
   display: flex;
   opacity: 0;
   visibility: hidden;
+  transition: opacity 0.3s;
 }
 .h_n-item.active .dd-menu {
   opacity: 1;
@@ -96,7 +97,7 @@ DROPDOWN MENU
 .dd-menu button {
   width: 100%;
   cursor: unset;
-  background-color: rgba(0, 0, 0, .3);
+  background-color: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(10px);
 }
 

@@ -71,17 +71,27 @@
             {% render 'accordion', heading: 'PRODUCT DESCRIPTION', content: product.description %}
           {% endif %}
 
-          {% render 'accordion',
-            heading: 'FIT',
-            content: product.metafields.custom.size_and_fit,
-            default: 'Regular fit'
+          {% comment %}
+            {% render 'accordion',
+              heading: 'FIT',
+              content: product.metafields.custom.size_and_fit,
+              default: 'Regular fit'
+            %}
+
+            {% render 'accordion',
+              heading: 'MATERIALS',
+              content: product.metafields.custom.material,
+              default: '100% Cotton'
+            %}
+          {% endcomment %}
+          {% assign x = 'Fit: '
+            | append: product.metafields.custom.size_and_fit
+            | append: '<br/>'
+            | append: 'Materials: '
+            | append: product.metafields.custom.material
           %}
 
-          {% render 'accordion',
-            heading: 'MATERIALS',
-            content: product.metafields.custom.material,
-            default: '100% Cotton'
-          %}
+          {% render 'accordion', heading: 'MORE INFORMATION', content: x, default: 'Contact for more info.' %}
         </div>
       </div>
     </div>

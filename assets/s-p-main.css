@@ -1,0 +1,19 @@
+.p {
+  padding-top: 40px;
+}
+.s-video {
+  /* padding-inline: var(--p-i); */
+  width: 75%;
+  margin-inline: auto;
+}
+.s-video figure {
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  background-color: #e5e5e5;
+}
+
+.s-video h3{
+    margin-top: 24px;
+    font-size: 12px;
+    font-weight: 400;
+}

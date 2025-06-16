@@ -9,16 +9,16 @@
  */
 {
   "sections": {
-    "video_banner_py4h7j": {
-      "type": "video-banner",
-      "name": "Video Banner",
+    "main": {
+      "type": "p-main",
       "settings": {
-        "collection_url": "",
-        "d_video": "shopify://files/videos/ fr25-h.mp4"
+        "d_video": "shopify://files/videos/ fr25-h.mp4",
+        "collection_url": "shopify://collections/women",
+        "title": "Shop the Summer 2025 Womenswear Collection"
       }
     }
   },
   "order": [
-    "video_banner_py4h7j"
+    "main"
   ]
 }

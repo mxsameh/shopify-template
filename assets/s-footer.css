@@ -3,7 +3,7 @@
   max-width: 600px;
   margin-inline: auto;
   padding-inline: var(--p-i);
-  border-top: 1px solid black;
+  border-top: 1px solid #555;
   @media (width > 860px) {
     max-width: unset;
   }

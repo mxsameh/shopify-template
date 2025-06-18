@@ -1,3 +1,18 @@
-.ps_products{
-    display: flex;
+.ps_products {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 40px 20px;
+  @media (width > 1008px) {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+  }
+}
+
+.ps_btn{
+    margin-top: 40px;
+    margin-inline: auto;
+    padding: 12px 48px;
+    font-size: 14px;
+    border: 1px solid black;
 }

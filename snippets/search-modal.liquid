@@ -1,10 +1,10 @@
-{% comment %} <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script> {% endcomment %}
 {{ 's-search-modal.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'j-search-modal.js' | asset_url }}" defer="defer"></script>
 
 <div class="search-modal">
   <div class="search-modal_t">
     {{ 'i-search.svg' | inline_asset_content }}
-    <predictive-search class="ps-f">
+    <div class="ps-f">
       <form action="{{ routes.search_url }}" method="get" role="search">
         <input
           id="Search-input"
@@ -15,58 +15,13 @@
         >
         <input name="options[prefix]" type="hidden" value="last">
       </form>
-    </predictive-search>
+    </div>
 
     <button class="search-modal_close">
       {{ 'i-close.svg' | inline_asset_content }}
     </button>
   </div>
-  <div class="search-modal_b">
+  <div class="search-modal_b h-s">
     <div id="predictive-search" tabindex="-1"></div>
   </div>
 </div>
-
-{% javascript %}
-  const $search_input = document.querySelector('#Search-input');
-  const $predictive_search = document.querySelector('#predictive-search');
-
-  const debounce = (fn, wait) => {
-    let t;
-    return (...args) => {
-      clearTimeout(t);
-      t = setTimeout(() => fn.apply(this, args), wait);
-    };
-  };
-
-  const handleChange = (e) => {
-    const searchTerm = e.target.value.trim();
-    getSearchResults(searchTerm);
-  };
-
-  const getSearchResults = async (searchTerm) => {
-    if (!searchTerm) {
-      $predictive_search.innerHTML = '';
-      return;
-    }
-
-    try {
-      const url = `/search/suggest?q=${encodeURIComponent(searchTerm)}&section_id=predictive-search`;
-      const res = await fetch(url);
-
-      if (!res.ok) throw new Error('Network response was not ok');
-
-      const text = await res.text();
-
-      const resultsMarkup = new DOMParser()
-        .parseFromString(text, 'text/html')
-        .querySelector('#shopify-section-predictive-search')?.innerHTML;
-
-      $predictive_search.innerHTML = resultsMarkup || '';
-    } catch (err) {
-      console.error('Failed to fetch predictive search results:', err);
-      $predictive_search.innerHTML = '';
-    }
-  };
-
-  $search_input.addEventListener('input', debounce(handleChange, 300));
-{% endjavascript %}

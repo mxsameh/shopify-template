@@ -15,39 +15,20 @@
   gap: 24px;
 }
 .h_l,
-.h_r {
+.h_r,
+.h_r-m {
   flex-basis: 100%;
 }
 .h_m {
   flex-shrink: 0;
 }
 .h_r {
-  display: flex;
-  justify-content: flex-end;
-  gap: 28px;
-}
-.h_r div {
-  font-size: 12px;
   display: none;
   @media (width > 768px) {
-    display: block;
+    display: flex;
+    justify-content: flex-end;
+    gap: 28px;
   }
-}
-
-.h_m a figure {
-  width: 80px;
-}
-.h_m a span {
-  font-size: 14px;
-  font-weight: 500;
-  color: #333;
-}
-
-.h_cb {
-  font-size: 12px;
-}
-.h_cb_count {
-  color: #333;
 }
 
 .h_n {
@@ -62,6 +43,41 @@
 }
 .h_n a {
   font-size: 12px;
+}
+
+.h_m a figure {
+  width: 80px;
+}
+.h_m a span {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+}
+
+.h_r div {
+  font-size: 12px;
+}
+
+.h_cb {
+  font-size: 12px;
+}
+.h_cb_count {
+  color: #333;
+}
+
+.h_r-m {
+  display: flex;
+  gap: 20px;
+  justify-content: flex-end;
+  @media (width > 768px) {
+    display: none;
+  }
+}
+.h_r-m div {
+  /* padding: 4px 8px; */
+}
+.h_r-m svg {
+  width: 20px;
 }
 
 /*****************

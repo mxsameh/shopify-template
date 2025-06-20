@@ -2,7 +2,7 @@ const $add_to_cart_forms = document.querySelectorAll(
   'form[action="/cart/add"]'
 );
 const $cd_ = document.querySelector(".cd_");
-const $h_c_btn = document.querySelector(".h_cb");
+const $cart_btn = document.querySelectorAll("#cart-btn");
 const $h_cart_count = document.querySelector("#h #cart-count");
 
 const Cart = async (html) => {
@@ -99,7 +99,9 @@ $add_to_cart_forms.forEach(($form) => {
 
 $cd_.addEventListener("click", closeCartDrawer);
 
-$h_c_btn.addEventListener("click", openCartDrawer);
+$cart_btn.forEach(($cb) => {
+  $cb.addEventListener("click", openCartDrawer);
+});
 
 const initialize = () => {
   // Query Selectors

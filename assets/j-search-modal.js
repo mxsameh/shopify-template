@@ -1,15 +1,17 @@
 const $predictive_search = document.querySelector("#predictive-search");
 
-const $header_search = document.getElementById("header-search");
+const $header_search = document.querySelectorAll("#search-btn");
 const $search_modal = document.querySelector(".search-modal");
 const $search_modal_close = document.querySelector(".search-modal_close");
 const $search_modal_form = document.querySelector(".ps-f form");
 const $search_modal_input = document.querySelector("#Search-input");
 
 // SEARCH BUTTON
-$header_search.addEventListener("click", (e) => {
-  $search_modal.style.display = "flex";
-  document.body.classList.add("s-s");
+$header_search.forEach(($sb) => {
+  $sb.addEventListener("click", (e) => {
+    $search_modal.style.display = "flex";
+    document.body.classList.add("s-s");
+  });
 });
 
 //  SEARCH MODAL CLOSE
@@ -60,4 +62,4 @@ const getSearchResults = async (searchTerm) => {
   }
 };
 
-$search_modal_input.addEventListener("input", debounce(handleChange, 300))
+$search_modal_input.addEventListener("input", debounce(handleChange, 300));

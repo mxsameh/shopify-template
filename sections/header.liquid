@@ -39,11 +39,20 @@
 
     <!-- Header Right -->
     <div class="h_r">
-      <div id="header-search">SEARCH</div>
+      <div id="search-btn">SEARCH</div>
       <div>{{ 'LOGIN' | link_to: routes.account_login_url }}</div>
-      <button class="h_cb" type="button">
+      <button id="cart-btn" class="h_cb" type="button">
         BAG (<span id="cart-count" class="h_cb_count">{{- cart.item_count -}}</span>)
       </button>
+    </div>
+
+    <div class="h_r-m">
+      <div id="search-btn">
+        {{ 'i-search.svg' | inline_asset_content }}
+      </div>
+      <div id="cart-btn">
+        {{ 'i-bag.svg' | inline_asset_content }}
+      </div>
     </div>
   </header>
 

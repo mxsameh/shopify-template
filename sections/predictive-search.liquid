@@ -26,7 +26,7 @@
     {% endcomment %}
 
     {%- if predictive_search.resources.products.size > 0 -%}
-      <h3 id="predictive-search-products">Products</h3>
+      <h3 id="predictive-search-products">PRODUCTS</h3>
 
       <ul class="ps_products">
         {%- for product in predictive_search.resources.products limit: 4 -%}
@@ -36,6 +36,10 @@
         {%- endfor -%}
       </ul>
     {%- endif -%}
-    <button class="ps_btn">ALL RESULTS ({{ predictive_search.resources.products.size }})</button>
+    <button class="ps_btn">
+      <a href="/search?q={{ predictive_search.terms }}" >
+        ALL RESULTS ({{ predictive_search.resources.products.size }})
+      </a>
+    </button>
   </div>
 {%- endif -%}

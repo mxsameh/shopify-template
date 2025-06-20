@@ -4,7 +4,8 @@
   <section class="s-video">
     <a href="{{ section.settings.collection_url }}">
       <figure>
-        {{ section.settings.d_video | video_tag: autoplay: true, muted: true, loop: true }}
+        {{ section.settings.d_video | video_tag: autoplay: true, muted: true, loop: true, class: 'd-video' }}
+        {{ section.settings.m_video | video_tag: autoplay: true, muted: true, loop: true, class: 'm-video' }}
       </figure>
     </a>
     <h3>

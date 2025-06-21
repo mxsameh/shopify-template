@@ -1,0 +1,14 @@
+<select class="collection_sort" id="sort-by">
+  {% assign sort_by = sort_by | default: default_sort_by %}
+
+  {% for option in sort_options %}
+    <option
+      value="{{ option.value }}"
+      {% if option.value == sort_by %}
+        selected="selected"
+      {% endif %}
+    >
+      {{ option.name }}
+    </option>
+  {% endfor %}
+</select>

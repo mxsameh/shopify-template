@@ -2,22 +2,15 @@
 <script src="{{ 'j-collection.js' | asset_url }}" defer></script>
 
 <div class="p">
-  <div class="collection_sort_">
-    <select class="collection_sort" id="sort-by">
-      {% assign sort_by = collection.sort_by | default: collection.default_sort_by %}
-
-      {% for option in collection.sort_options %}
-        <option
-          value="{{ option.value }}"
-          {% if option.value == sort_by %}
-            selected="selected"
-          {% endif %}
-        >
-          {{ option.name }}
-        </option>
-      {% endfor %}
-    </select>
-  </div>
+  {% comment %}
+    <div class="collection_sort_">
+      {% render 'collection-sort',
+        sort_by: collection.sort_by,
+        default: collection.default_sort_by,
+        sort_options: collection.sort_options
+      %}
+    </div>
+  {% endcomment %}
 
   {% comment %} {% assign breadcrumbs = collection.metafields.custom.breadcrumbs.value %} {% endcomment %}
 

@@ -3,7 +3,7 @@ const $add_to_cart_forms = document.querySelectorAll(
 );
 const $cd_ = document.querySelector(".cd_");
 const $cart_btn = document.querySelectorAll("#cart-btn");
-const $h_cart_count = document.querySelector("#h #cart-count");
+const $h_cart_count = document.querySelectorAll("#cart-count");
 
 const Cart = async (html) => {
   if (!html) {
@@ -15,7 +15,9 @@ const Cart = async (html) => {
   $cd_.innerHTML = $html.querySelector(".cd_").innerHTML;
   $cd_.innerHTML = $html.querySelector(".cd_").innerHTML;
   const count = $html.querySelector(".cd_h_count_").getAttribute("data-count");
-  $h_cart_count.textContent = count;
+  $h_cart_count.forEach(($count) => {
+    $count.textContent = count;
+  });
 
   initialize();
 };

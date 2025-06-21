@@ -73,11 +73,28 @@
     display: none;
   }
 }
-.h_r-m div {
+.h_r-m > div {
   /* padding: 4px 8px; */
+  position: relative;
 }
 .h_r-m svg {
   width: 20px;
+}
+
+.h_r-m_cc {
+  position: absolute;
+  background-color: black;
+  color: white;
+  font-size: 8px;
+  line-height: 1;
+  width: 12px;
+  height: 12px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: calc(50% - 4px);
+  right: -3px;
 }
 
 /*****************

@@ -148,6 +148,21 @@
   background-color: #999;
 }
 
+
+/* PRODUCT DATA */
 .product_data {
   margin-top: 40px;
+}
+.product_desc{
+  margin-bottom:24px;
+}
+.product_desc h2{
+  font-size: 12px;
+  font-weight: 400;
+  margin-bottom: 16px;
+}
+.product_desc p{
+  font-size: 14px;
+  line-height: 1.5;
+  color: #555;
 }

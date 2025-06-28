@@ -1,4 +1,3 @@
-
 .nl_form label {
   font-size: 15px;
   font-weight: 500;
@@ -22,4 +21,8 @@
 }
 .nl_form button svg {
   width: 16px;
+}
+.nl_form .success {
+  font-size: 15px;
+  font-weight: 500;
 }

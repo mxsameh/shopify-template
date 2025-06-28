@@ -1,12 +1,14 @@
 {{ 's-newsletter.css' | asset_url | stylesheet_tag }}
 
-  {% form 'customer', class: 'nl_form' %}
-    <input type="hidden" name="contact[tags]" value="newsletter">
+{% form 'customer', class: 'nl_form' %}
+  <input type="hidden" name="contact[tags]" value="newsletter">
+
+  {%- unless form.posted_successfully? -%}
     <fieldset>
-      <label for="NewsletterForm--{{ section.id }}">Subscribe to our Newsletter</label>
+      <label for="email">Subscribe to our Newsletter</label>
       <div>
         <input
-          id="NewsletterForm--{{ section.id }}"
+          id="email"
           type="email"
           name="contact[email]"
           autocorrect="off"
@@ -25,30 +27,21 @@
         </button>
       </div>
     </fieldset>
+  {% else %}
+    <h3
+      class="success"
+      autofocus
+    >
+      Thanks for subscribing!
+    </h3>
+  {%- endunless -%}
 
+  {% comment %}
     {%- if form.errors -%}
       <small class="newsletter-form__message form__message" id="Newsletter-error--{{ section.id }}">
         {{- form.errors.translated_fields.email | capitalize }}
         {{ form.errors.messages.email -}}
       </small>
     {%- endif -%}
-    {%- if form.posted_successfully? -%}
-      <h3
-        class="newsletter-form__message newsletter-form__message--success form__message"
-        id="Newsletter-success--{{ section.id }}"
-        tabindex="-1"
-        autofocus
-      >
-        Welcome to the family!
-      </h3>
-    {%- endif -%}
-  {% endform %}
-
-{% javascript %}
-  const form = document.querySelector('.nl_form');
-  // console.log('hee', form);
-
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-  });
-{% endjavascript %}
+  {% endcomment %}
+{% endform %}

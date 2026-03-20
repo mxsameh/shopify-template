@@ -1,66 +1,14 @@
 {
   "article": [],
   "blog": [],
-  "collection": [
-    {
-      "key": "breadcrumbs",
-      "namespace": "custom",
-      "name": "breadcrumbs",
-      "description": "",
-      "type": {
-        "name": "list.collection_reference",
-        "category": "REFERENCE"
-      }
-    }
-  ],
+  "collection": [],
   "company": [],
   "company_location": [],
   "location": [],
   "market": [],
   "order": [],
   "page": [],
-  "product": [
-    {
-      "key": "color-pattern",
-      "namespace": "shopify",
-      "name": "Color",
-      "description": "Defines the primary color or pattern, such as blue or striped",
-      "type": {
-        "name": "list.metaobject_reference",
-        "category": "REFERENCE"
-      }
-    },
-    {
-      "key": "size",
-      "namespace": "shopify",
-      "name": "Size",
-      "description": "Used to specify the size of a product, such as 0-3 months or Extra large (XL)",
-      "type": {
-        "name": "list.metaobject_reference",
-        "category": "REFERENCE"
-      }
-    },
-    {
-      "key": "material",
-      "namespace": "custom",
-      "name": "material",
-      "description": "",
-      "type": {
-        "name": "single_line_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
-      "key": "fit",
-      "namespace": "custom",
-      "name": "fit",
-      "description": "",
-      "type": {
-        "name": "single_line_text_field",
-        "category": "TEXT"
-      }
-    }
-  ],
+  "product": [],
   "variant": [],
   "shop": []
 }
